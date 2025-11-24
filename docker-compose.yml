@@ -1,0 +1,13 @@
+services:
+  nest-clean-prisma-crud-tasks:
+    container_name: nest-clean-prisma-crud-tasks
+    image: postgres
+    ports: 
+     - 5432:5432
+    environment:
+      - POSTGRES_USER=nest-clean-prisma-user
+      - POSTGRES_PASSWORD=nest-clean-prisma-password
+      - POSTGRES_DB=nest-clean-prisma-db
+      - PGDATA=/data/postgres
+    volumes:
+      - ./data/pg:/data/postgres
