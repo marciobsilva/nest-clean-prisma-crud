@@ -1,0 +1,42 @@
+@baseUrl = http://localhost:3000
+
+# create_task
+POST {{baseUrl}}/task
+Content-Type: application/json
+
+{
+  "title": "titulo 2",
+  "description": "descrição 2"
+}
+
+###
+
+# fetch_tasks
+GET {{baseUrl}}/task
+
+###
+
+# update_task
+PUT {{baseUrl}}/task/5d51b3f9-6f44-4eeb-9e6c-ce5c23c33ab6
+Content-Type: application/json
+
+{
+  "title": "titulo novo",
+  "description": "descrição"
+}
+
+###
+
+# delete_task
+DELETE {{baseUrl}}/task/94813977-1e37-4e41-b7f6-a788e35dd8ec
+Content-Type: application/json
+
+{
+  "title": "titulo novo",
+  "description": "descrição"
+}
+
+###
+
+# complete_task
+PATCH {{baseUrl}}/task/1adf8463-0bc8-4b2c-892b-5bc1418b0599/complete

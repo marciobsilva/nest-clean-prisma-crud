@@ -9,7 +9,9 @@ Um projeto **CRUD de tarefas** desenvolvido com **NestJS**, seguindo os princíp
 - **[NestJS](https://nestjs.com/)** — Framework Node.js para construção de aplicações escaláveis e modulares.  
 - **[Prisma](https://www.prisma.io/)** — ORM moderno e tipado para comunicação com o banco de dados.  
 - **[Zod](https://zod.dev/)** — Biblioteca para validação e tipagem de dados.  
-- **[TypeScript](https://www.typescriptlang.org/)** — Tipagem estática para JavaScript.  
+- **[TypeScript](https://www.typescriptlang.org/)** — Tipagem estática para JavaScript.
+- **[Vitest](https://vitest.dev/)** — Um framework de testes nativo do Vite. 
+- **[csv-parser](https://csv.js.org/parse/)** — Conversor de textos CSV para objeto. 
 
 ---
 
