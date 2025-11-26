@@ -4,7 +4,6 @@ import { AppService } from './app.service';
 import { CreateTaskController } from './infra/http/controllers/create-task.controller';
 import { CreateTaskUseCase } from './domain/application/use-cases/create-task';
 import { TasksRepository } from './domain/application/repositories/tasks-repository';
-import { InMemoryTasksRepository } from 'test/repositories/in-memory-tasks-repository';
 import { FetchTasksController } from './infra/http/controllers/fetch-tasks.controller';
 import { FetchTasksUseCase } from './domain/application/use-cases/fetch-tasks';
 import { UpdateTaskController } from './infra/http/controllers/update-task.controller';
@@ -15,13 +14,15 @@ import { CreateManyTasksCsvController } from './infra/http/controllers/create-ma
 import { CreateManyTasksCsvUseCase } from './domain/application/use-cases/create-many-tasks-csv';
 import { CompleteTaskController } from './infra/http/controllers/complete-task.controller';
 import { CompleteTaskUseCase } from './domain/application/use-cases/complete-task';
+import { PrismaTaskRepository } from './infra/database/prisma/repositories/PrismaTaskRepository';
+import { PrismaService } from './infra/database/prisma/prisma.service';
 
 @Module({
   imports: [],
   controllers: [AppController, CreateTaskController, FetchTasksController, UpdateTaskController, DeleteTaskController, CompleteTaskController, CreateManyTasksCsvController],
-  providers: [AppService, CreateTaskUseCase, FetchTasksUseCase, UpdateTaskUseCase, DeleteTaskUseCase, CompleteTaskUseCase, CreateManyTasksCsvUseCase, {
+  providers: [PrismaService, AppService, CreateTaskUseCase, FetchTasksUseCase, UpdateTaskUseCase, DeleteTaskUseCase, CompleteTaskUseCase, CreateManyTasksCsvUseCase, {
     provide: TasksRepository,
-    useClass: InMemoryTasksRepository
+    useClass: PrismaTaskRepository
   }],
 })
 export class AppModule {}

@@ -5,8 +5,8 @@ POST {{baseUrl}}/task
 Content-Type: application/json
 
 {
-  "title": "titulo 2",
-  "description": "descrição 2"
+  "title": "titulo marcio",
+  "description": "descrição marcio"
 }
 
 ###
@@ -17,7 +17,7 @@ GET {{baseUrl}}/task
 ###
 
 # update_task
-PUT {{baseUrl}}/task/5d51b3f9-6f44-4eeb-9e6c-ce5c23c33ab6
+PUT {{baseUrl}}/task/1f55a1b7-e854-430f-8101-0ea3c8953922
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 ###
 
 # delete_task
-DELETE {{baseUrl}}/task/94813977-1e37-4e41-b7f6-a788e35dd8ec
+DELETE {{baseUrl}}/task/0f1a2c11-0d8b-4b43-8e5c-c1cc8376c789
 Content-Type: application/json
 
 {
@@ -39,4 +39,4 @@ Content-Type: application/json
 ###
 
 # complete_task
-PATCH {{baseUrl}}/task/1adf8463-0bc8-4b2c-892b-5bc1418b0599/complete
+PATCH {{baseUrl}}/task/3fe18c35-d5d6-4b2f-894b-ec56376c586b/complete
