@@ -27,12 +27,14 @@ beforeAll(async () => {
 
   process.env.DATABASE_URL = databaseURL
   
-  const connectionString = `${process.env.DATABASE_URL}`
+  const connectionString = `${databaseURL}`
+  const url = new URL(connectionString)
+  const schemaId = url.searchParams.get('schema') ?? 'public'
   
   prisma = new PrismaClient({
     adapter: new PrismaPg({
       connectionString
-    })
+    }, { schema: schemaId })
   })
 
   execSync('npx prisma migrate deploy')

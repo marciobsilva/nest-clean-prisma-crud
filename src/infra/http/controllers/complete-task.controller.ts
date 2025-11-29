@@ -4,6 +4,7 @@ import { ZodValidationPipe } from '../pipes/zod-validation-pipe';
 import { UpdateTaskUseCase } from 'src/domain/application/use-cases/update-task';
 import { TasksRepository } from 'src/domain/application/repositories/tasks-repository';
 import { CompleteTaskUseCase } from 'src/domain/application/use-cases/complete-task';
+import { TaskPresenter } from '../presenters/TaskPresenter';
 
 @Controller('/task')
 export class CompleteTaskController {
@@ -22,6 +23,6 @@ export class CompleteTaskController {
 
     const { task: taskCompleted } = await this.completeTaskUseCase.execute({ id })
   
-    return { task: taskCompleted }
+    return { task: TaskPresenter.toHTTP(taskCompleted) }
   }
 }

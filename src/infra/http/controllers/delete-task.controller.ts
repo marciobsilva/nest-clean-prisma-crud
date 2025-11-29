@@ -19,6 +19,6 @@ export class DeleteTaskController {
       throw new BadRequestException('Resource not found')
     }
 
-    const taskUpdated = await this.deleteTaskUseCase.execute({ id })
+    await this.deleteTaskUseCase.execute({ id })
   }
 }

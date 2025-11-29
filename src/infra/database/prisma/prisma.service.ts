@@ -11,7 +11,10 @@ export class PrismaService
   constructor() {
     const connectionString = `${process.env.DATABASE_URL}`
 
-    const adapter = new PrismaPg({ connectionString })
+    const url = new URL(connectionString)
+    const schemaId = url.searchParams.get('schema') ?? 'public'
+
+    const adapter = new PrismaPg({ connectionString }, { schema: schemaId })
 
     super({
       adapter,
