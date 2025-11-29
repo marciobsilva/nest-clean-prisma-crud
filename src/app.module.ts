@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { CreateTaskController } from './infra/http/controllers/create-task.controller';
 import { CreateTaskUseCase } from './domain/application/use-cases/create-task';
 import { TasksRepository } from './domain/application/repositories/tasks-repository';
@@ -19,10 +17,26 @@ import { PrismaService } from './infra/database/prisma/prisma.service';
 
 @Module({
   imports: [],
-  controllers: [AppController, CreateTaskController, FetchTasksController, UpdateTaskController, DeleteTaskController, CompleteTaskController, CreateManyTasksCsvController],
-  providers: [PrismaService, AppService, CreateTaskUseCase, FetchTasksUseCase, UpdateTaskUseCase, DeleteTaskUseCase, CompleteTaskUseCase, CreateManyTasksCsvUseCase, {
-    provide: TasksRepository,
-    useClass: PrismaTaskRepository
-  }],
+  controllers: [
+    CreateTaskController, 
+    FetchTasksController, 
+    UpdateTaskController, 
+    DeleteTaskController, 
+    CompleteTaskController, 
+    CreateManyTasksCsvController
+  ],
+  providers: [
+    PrismaService, 
+    CreateTaskUseCase, 
+    FetchTasksUseCase, 
+    UpdateTaskUseCase, 
+    DeleteTaskUseCase, 
+    CompleteTaskUseCase, 
+    CreateManyTasksCsvUseCase, 
+    {
+      provide: TasksRepository,
+      useClass: PrismaTaskRepository
+    }
+  ],
 })
 export class AppModule {}
