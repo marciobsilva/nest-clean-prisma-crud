@@ -105,13 +105,6 @@ Utilizar o arquivo client.http
 
 ---
 
-## 🧾 Licença
-
-Este projeto é distribuído sob a licença **MIT**.  
-Sinta-se à vontade para usar e modificar.
-
----
-
 ## ✨ Autor
 
 Desenvolvido por **Márcio Silva**  
