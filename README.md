@@ -21,14 +21,14 @@ O projeto segue os princípios da **Clean Architecture**, separando as camadas d
 
 ```
 src/
+├── core/          # Entidades e tipos base
 ├── domain/
-│   ├── core/          # Entidades e tipos base
 │   ├── enterprise/    # Entidades do domínio
 │   └── application/   # Casos de uso (use cases)
 ├── infra/
 │   ├── database/      # Prisma e repositórios concretos
-│   ├── http/          # Controllers, DTOs e validações
-│   └── prisma/        # Configuração do Prisma Client
+│   │   └── prisma/        # Configuração do Prisma Client
+│   └── http/          # Controllers, DTOs e validações
 └── main.ts            # Ponto de entrada da aplicação
 ```
 
@@ -43,6 +43,7 @@ Essa estrutura facilita testes, manutenção e escalabilidade, mantendo o domín
 ✅ Atualizar uma tarefa  
 ✅ Excluir uma tarefa  
 ✅ Buscar tarefa por ID  
+✅ Criar tarefas por arquivo csv  
 
 ---
 
@@ -51,7 +52,7 @@ Essa estrutura facilita testes, manutenção e escalabilidade, mantendo o domín
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/nest-clean-prisma-crud.git
+git clone https://github.com/marciobsilva/nest-clean-prisma-crud.git
 cd nest-clean-prisma-crud
 ```
 
@@ -100,21 +101,7 @@ npm run test
 
 ## 🧰 Exemplos de requisições
 
-### Criar tarefa
-```http
-POST /tasks
-Content-Type: application/json
-
-{
-  "title": "Estudar NestJS",
-  "description": "Revisar Clean Architecture e Prisma"
-}
-```
-
-### Retornar todas as tarefas
-```http
-GET /tasks
-```
+Utilizar o arquivo client.http
 
 ---
 
@@ -128,4 +115,4 @@ Sinta-se à vontade para usar e modificar.
 ## ✨ Autor
 
 Desenvolvido por **Márcio Silva**  
-💼 [LinkedIn](https://www.linkedin.com/in/seu-perfil) • 💻 [GitHub](https://github.com/seu-usuario)
+💼 [LinkedIn](https://www.linkedin.com/in/marciobsilva) • 💻 [GitHub](https://github.com/marciobsilva)
