@@ -1,6 +1,6 @@
+import 'dotenv/config'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { PrismaClient } from '@prisma/client'
-import 'dotenv/config'
 import { execSync } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 
@@ -31,13 +31,13 @@ beforeAll(async () => {
   const url = new URL(connectionString)
   const schemaId = url.searchParams.get('schema') ?? 'public'
   
+  execSync('npx prisma migrate deploy', { stdio: 'inherit' })
+  
   prisma = new PrismaClient({
     adapter: new PrismaPg({
       connectionString
     }, { schema: schemaId })
   })
-
-  execSync('npx prisma migrate deploy')
   
   await prisma.$connect()
 })

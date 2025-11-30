@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { ZodValidationPipe } from '../pipes/zod-validation-pipe';
 import { UpdateTaskUseCase } from 'src/domain/application/use-cases/update-task';
 import { TasksRepository } from 'src/domain/application/repositories/tasks-repository';
+import { TaskPresenter } from '../presenters/TaskPresenter';
 
 export const updateTaskSchema = z.object({
   title: z.string(),
@@ -33,6 +34,6 @@ export class UpdateTaskController {
 
     const taskUpdated = await this.updateTaskUseCase.execute({ id, title, description })
   
-    return { task: taskUpdated }
+    return { task: TaskPresenter.toHTTP(taskUpdated) }
   }
 }

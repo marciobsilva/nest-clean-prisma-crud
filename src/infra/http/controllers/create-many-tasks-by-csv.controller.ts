@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { ZodValidationPipe } from '../pipes/zod-validation-pipe';
 import { FileInterceptor } from '@nestjs/platform-express';
 import fs from 'node:fs';
+import { TaskPresenter } from '../presenters/TaskPresenter';
 
 
 export const createManyTasksCsvSchema = z.object({
@@ -22,7 +23,7 @@ export class CreateManyTasksCsvController {
     try {
       const { tasks } = await this.createManyTasksCsvUseCase.execute({ csvPath: file.path })
 
-      return { tasks }
+      return { tasks: tasks.map( task => TaskPresenter.toHTTP(task)) }
     } finally {
       await fs.unlink(file.path, () => {})
     }

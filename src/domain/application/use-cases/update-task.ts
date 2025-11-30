@@ -23,6 +23,6 @@ export class UpdateTaskUseCase {
 
     await this.tasksRepository.save(task);
 
-    return { task };
+    return task;
   }
 }
